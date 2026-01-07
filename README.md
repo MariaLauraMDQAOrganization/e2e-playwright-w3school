@@ -11,7 +11,7 @@ This project performs E2E tests on the [W3Schools](https://w3schools.com) websit
 
 You can view the test status using the following **GitHub Actions** badge:
 
-![Test Workflow](https://github.com/MariaLauraMDQAOrganization/e2e-playwright-w3schools/actions/workflows/playwright_tests.yml/badge.svg)
+![Test Workflow](https://github.com/MariaLauraMDQAOrganization/e2e-playwright-w3school/actions/workflows/playwright_tests.yml/badge.svg)
 
 ## Requirements
 
