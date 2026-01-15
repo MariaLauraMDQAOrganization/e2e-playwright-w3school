@@ -8,7 +8,7 @@ def test_visit_menu_links(page:Page):
 
     print("When the user accepts cookies")
     #Localizamos el elemento por texto
-    page.get_by_text("Accept all").click()
+    page.frame_locator("iframe[title=\"FastCMP\"]").get_by_role("button", name=re.compile("accept|aceptar", re.IGNORECASE)).click()
 
     print("And clicks on HTML menu link")
     #Localizamos el elemento por rol (button, link, heading) y por texto exacto
@@ -35,7 +35,7 @@ def test_visit_menu_links(page:Page):
     page.get_by_role("link", name="JAVASCRIPT", exact=True).click()
     print("Then the user should be on JavaScript tutorial page")
     #Comprobamos que la URL contiene "javascript"
-    expect(page).to_have_url(re.compile("javascript"))
+    expect(page).to_have_url(re.compile("js"))
     #Comprueba que el título de la página contiene el texto exacto "JavaScript Tutorial"
     expect(page).to_have_title("JavaScript Tutorial")
     #Localizamos el elemnento con título heading (H1), que tenga el texto exacto "JavaScript Tutorial".

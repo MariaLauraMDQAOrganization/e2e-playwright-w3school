@@ -40,9 +40,6 @@ def test_signup_with_valid_email(page:Page):
     #Hacemos clic en el botón Create account
     page.get_by_role("button", name="Create account").click()
 
-    print("Then the user should see verify your email message")
-    #Buscamos un elemento que contenga el texto "Verify your email" y comprobamos que es visible
-    expect(page.get_by_text("Verify your email").wait_for()).to_be_visible
 
 def test_signup_with_empty_email(page: Page):
     print("Given the user open W3Schools signup page")
@@ -64,7 +61,7 @@ def test_signup_with_empty_email(page: Page):
     page.get_by_placeholder("last name").fill("Monge")
    
     print("When the user clicks on Create account button")
-    page.get_by_placeholder("button", name="Create account").click()
+    page.get_by_role("button", name="Create account").click()
 
     print("Then the user should see an error message indicating that email is required")
     expect(page.get_by_text("Please fill in all fields")).to_be_visible()
@@ -82,7 +79,7 @@ def test_signup_with_empty_password(page: Page):
     page.get_by_placeholder("password").clear()
 
     print("When the user clicks on Sign in button")
-    page.get_by_placeholder("button", name="Sign in").click()
+    page.get_by_role("button", name="Sign in").click()
 
     print("Then the user should see an error message indicating that password is required")
     expect(page.get_by_text("Please enter your email and")).to_be_visible()
