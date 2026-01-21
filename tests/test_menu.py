@@ -1,5 +1,6 @@
 from playwright.sync_api import Page, expect
 import re
+import utils
 
 def test_visit_menu_links(page:Page):
     print("Given the user opens W3Schools homepage")
