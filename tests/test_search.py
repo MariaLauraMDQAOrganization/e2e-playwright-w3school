@@ -5,8 +5,13 @@ def test_search_empty(page:Page):
     print("Given the user opens W3Schools homepage")
     page.goto("http://www.w3schools.com/")
 
-    print("When the user accepts cookies")
-    page.frame_locator("iframe[title=\"FastCMP\"]").get_by_role("button", name=re.compile("accept|aceptar", re.IGNORECASE)).click()
+    try:
+        print("When the user accepts cookies")
+        #Localizamos el elemento por texto
+        page.frame_locator("iframe[title=\"FastCMP\"]").get_by_role("button", name=re.compile("accept|aceptar", re.IGNORECASE)).click(timeout=3000)
+    except:
+        #Cuaquier excepción la ignoramos (no se muestra el banner)
+        print("No cookie banner displayed")
 
     print("And the user leaves the search field empty")
     #Presionamos el campo de búsqueda y lo dejamos vacío

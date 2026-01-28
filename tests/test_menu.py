@@ -7,9 +7,13 @@ def test_visit_menu_links(page:Page):
     #Abrir la página principal de W3Schools
     page.goto("https://www.w3schools.com/")
 
-    print("When the user accepts cookies")
-    #Localizamos el elemento por texto
-    page.frame_locator("iframe[title=\"FastCMP\"]").get_by_role("button", name=re.compile("accept|aceptar", re.IGNORECASE)).click()
+    try:
+        print("When the user accepts cookies")
+        #Localizamos el elemento por texto
+        page.frame_locator("iframe[title=\"FastCMP\"]").get_by_role("button", name=re.compile("accept|aceptar", re.IGNORECASE)).click(timeout=3000)
+    except:
+        #Cuaquier excepción la ignoramos (no se muestra el banner)
+        print("No cookie banner displayed")
 
     print("And clicks on HTML menu link")
     #Localizamos el elemento por rol (button, link, heading) y por texto exacto
