@@ -46,7 +46,7 @@ jobs:
         path: test-results/
 
 
-        name: Run tests on Mobile
+    - name: Run tests on Mobile
       run: |
         pytest --capture=tee-sys --html=resultsmobile.html --self-contained-html --device="Iphone 12" --video=on
 
